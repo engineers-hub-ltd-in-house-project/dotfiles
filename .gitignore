@@ -34,3 +34,6 @@ __pycache__/
 
 # Any local-only configuration
 *.local
+
+# Claude configuration
+claude.json
