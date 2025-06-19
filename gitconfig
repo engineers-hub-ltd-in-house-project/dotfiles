@@ -1,0 +1,46 @@
+[user]
+	email = yusuke.sato@ys-office.llc
+	name = Yusuke Sato
+[push]
+	autoSetupRemote = true
+[alias]
+	s = status -s
+	co = checkout
+	br = branch
+	ci = commit
+	cp = cherry-pick
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	l = !git lg -30
+	la = !git lg --all
+	d = diff
+	dc = diff --cached
+	ds = diff --staged
+	aa = add --all
+	ap = add -p
+	ca = commit --amend
+	can = commit --amend --no-edit
+	bD = branch -D
+	save = !git add -A && git commit -m \"SAVEPOINT\"
+	undo = reset HEAD~1 --mixed
+	wip = !git add -A && git commit -m \"WIP\"
+	unstage = reset HEAD --
+	undo-commit = reset --soft HEAD^
+	cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
+	conflicts = diff --name-only --diff-filter=U
+	rbi = rebase -i
+	rbc = rebase --continue
+	rba = rebase --abort
+	pf = push --force-with-lease
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	contributors = shortlog --summary --numbered
+	recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
+	alias = "!f() {\n    (echo \"# 基本コマンド\"\n    echo \"s        = status -s                # ステータスをシンプル表示\"\n    echo \"co       = checkout                 # ブランチの切替・作成\"\n    echo \"br       = branch                   # ブランチの一覧・操作\"\n    echo \"ci       = commit                   # 変更のコミット\"\n    echo \"cp       = cherry-pick             # 特定コミットの取込み\"\n    echo \"\"\n    echo \"# ログ表示\"\n    echo \"lg       = グラフ形式でログ表示     # ブランチツリー付きのコミット履歴\"\n    echo \"l        = 直近30件のログ          # 最新の30コミットを表示\"\n    echo \"la       = 全ブランチのログ        # 全ブランチの履歴をグラフ表示\"\n    echo \"lgt      = 日付付きグラフログ      # 日付、作者情報付きの詳細ログ\"\n    echo \"lgtnm    = マージ除外ログ         # マージコミットを除外した履歴\"\n    echo \"lgtnmd   = dev-main差分          # devとmainの差分を表示\"\n    echo \"lgtnmdiff = ブランチ間差分        # 指定した2ブランチ間の差分\"\n    echo \"\"\n    echo \"# 差分確認\"\n    echo \"d        = diff                    # 作業中の変更差分\"\n    echo \"dc       = diff --cached           # コミット予定の差分\"\n    echo \"ds       = diff --staged           # ステージングの差分\"\n    echo \"\"\n    echo \"# 作業効率化\"\n    echo \"aa       = add --all              # 全変更をステージング\"\n    echo \"ap       = add -p                 # 変更を対話的にステージング\"\n    echo \"ca       = commit --amend         # 直前のコミットを修正\"\n    echo \"can      = commit --amend --no-edit # メッセージ変更なしでコミット修正\"\n    echo \"\"\n    echo \"# ブランチ管理\"\n    echo \"bd       = branch -d              # ブランチの削除\"\n    echo \"bD       = branch -D              # ブランチの強制削除\"\n    echo \"\"\n    echo \"# 作業状態の一時保存\"\n    echo \"save     = 作業を一時保存         # 現在の変更をSAVEPOINTとして保存\"\n    echo \"wip      = 作業を一時保存         # 現在の変更をWIPとして保存\"\n    echo \"undo     = 直前の操作を取消       # 最後の操作を取り消し\"\n    echo \"\"\n    echo \"# 変更の取消・リセット\"\n    echo \"unstage  = ステージングを取消     # ステージングした変更を元に戻す\"\n    echo \"undo-commit = コミットを取消      # 直前のコミットを取消（変更は保持）\"\n    echo \"\"\n    echo \"# メンテナンス\"\n    echo \"cleanup  = リポジトリ清掃         # 不要なオブジェクトを削除\"\n    echo \"conflicts = コンフリクト確認      # コンフリクトファイルを一覧表示\"\n    echo \"\"\n    echo \"# リベース操作\"\n    echo \"rbi      = rebase -i              # 対話的なリベース開始\"\n    echo \"rbc      = rebase --continue      # リベースの続行\"\n    echo \"rba      = rebase --abort         # リベースの中止\"\n    echo \"\"\n    echo \"# リモート操作\"\n    echo \"pf       = push --force-with-lease # 安全な強制プッシュ\"\n    echo \"up       = リポジトリ更新         # pull、rebase、サブモジュール更新\"\n    echo \"\"\n    echo \"# 情報表示\"\n    echo \"contributors = 貢献者一覧          # 貢献者とそのコミット数を表示\"\n    echo \"recent   = 最近のブランチ         # 直近で更新された10ブランチ\") | less\n}; f"
+	lgs = log --pretty=format:\"%C(yellow)%h%Creset %C(cyan)%an%Creset %C(white)%s%Creset\" --color
+	lgt = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --date=short
+	lgtnm = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --date=short --no-merges
+	lgtnmd = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --date=short --no-merges dev..main
+	lgtnmdiff = "!f() { git log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)\" --date=short --no-merges $1..$2; }; f"
+[init]
+	defaultBranch = main
+[credential]
+	helper = "!f() { echo \"username=$(gh api user --jq .login)\"; echo \"password=$(gh auth token)\"; }; f"
