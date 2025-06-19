@@ -1,0 +1,36 @@
+# Temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backup files
+*.backup
+
+# Sensitive files that shouldn't be in version control
+.git-credentials
+.boto
+.mysql_history
+.bash_history
+.viminfo
+.lesshst
+.sudo_as_admin_successful
+
+# Cache directories
+.cache/
+.local/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Node modules (if any config uses them)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Any local-only configuration
+*.local
