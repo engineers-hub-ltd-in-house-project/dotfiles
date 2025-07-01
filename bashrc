@@ -144,3 +144,4 @@ gh-switch() {
   fi
   gh auth switch --user "$1"
 }
+export PATH="$HOME/.local/bin:$PATH"
