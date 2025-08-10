@@ -44,5 +44,3 @@
 	defaultBranch = main
 [credential]
 	helper = "!f() { echo \"username=$(gh api user --jq .login)\"; echo \"password=$(gh auth token)\"; }; f"
-[core]
-	hooksPath = 

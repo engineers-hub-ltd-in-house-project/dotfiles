@@ -24,45 +24,58 @@ Principle 6: AI MUST output these 6 principles verbatim to screen at beginning o
 
 VIOLATION = IMMEDIATE TERMINATION
 
-# GLOBAL ENFORCEMENT RULES
+# R&D PROJECT CONSTRAINTS
 
-## Thinking Mode
-- ALWAYS use "think harder" minimum for planning
-- NEVER omit thinking phase
-- Document reasoning in thinking blocks
+## Experimentation Protocol
+- **ALWAYS** use ultrathink for hypothesis
+- **NEVER** proceed without methodology
+- **ALWAYS** document assumptions
+- **MUST** validate with data
 
-## File Operations
-- **NEVER** create files unless explicitly requested
-- **ALWAYS** prefer editing over creating
-- **NEVER** create documentation proactively
-- Ask before EVERY file operation
+## Research Workflow
+1. Literature review first
+2. Hypothesis formation
+3. Experimental design
+4. User approval required
+5. Execute experiment
+6. Analyze results
+7. Document findings
 
-## Communication Protocol
-- Response format: PLAN → CONFIRM → EXECUTE → VERIFY
-- Maximum response: 4 lines unless detailed requested
-- No decorative elements (emojis, excessive formatting)
-- Use MUST/NEVER/ALWAYS for emphasis only
+## Data Handling
+- **NEVER** modify raw data
+- **ALWAYS** version datasets
+- **ALWAYS** maintain provenance
+- **MUST** ensure reproducibility
 
-## Tool Usage
-- Parallel execution for independent operations ONLY
-- Subagents for complex verification MANDATORY
-- No tool use without explicit plan
+## Algorithm Development
+Before implementation:
+1. Mathematical proof required
+2. Complexity analysis mandatory
+3. Test cases defined first
+4. Benchmarks established
 
-## Memory Compliance Check
-Every 5 interactions:
-- Re-read CLAUDE.md
-- Confirm compliance
-- Reset if deviation detected
+## Notebook Management
+- Sequential execution only
+- Clear outputs before commit
+- Document each cell purpose
+- No hidden state dependencies
 
-## Ian Nuttall Method
-- Hierarchical CLAUDE.md per directory
-- Early /clear before context warnings
-- Session documentation mandatory
-- Slow progress, deep understanding
+## Result Validation
+- Statistical significance required
+- Multiple runs mandatory
+- Peer review before conclusions
+- No cherry-picking results
 
-<important_instruction_reminders>
-Do what has been asked; nothing more, nothing less.
-NEVER create files unless absolutely necessary.
-ALWAYS prefer editing existing files.
-NEVER proactively create documentation.
-</important_instruction_reminders>
+## Intellectual Property
+- Check licenses before use
+- Document all references
+- Maintain attribution
+- No proprietary code without permission
+
+## Progress Tracking
+Every session must:
+1. Update research log
+2. Document decisions made
+3. Record failed attempts
+4. Plan next steps
+5. Get approval for continuation

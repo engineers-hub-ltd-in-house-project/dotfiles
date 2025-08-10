@@ -24,45 +24,49 @@ Principle 6: AI MUST output these 6 principles verbatim to screen at beginning o
 
 VIOLATION = IMMEDIATE TERMINATION
 
-# GLOBAL ENFORCEMENT RULES
+# TEAM COLLABORATION RULES
 
-## Thinking Mode
-- ALWAYS use "think harder" minimum for planning
-- NEVER omit thinking phase
-- Document reasoning in thinking blocks
+## Code Ownership
+- **NEVER** modify others' code without permission
+- **ALWAYS** check CODEOWNERS file
+- **ALWAYS** create feature branch
+- **NEVER** push to main/master
 
-## File Operations
-- **NEVER** create files unless explicitly requested
-- **ALWAYS** prefer editing over creating
-- **NEVER** create documentation proactively
-- Ask before EVERY file operation
+## Communication Requirements
+Before ANY change:
+1. Check if someone working on same file
+2. Document intended changes
+3. Get approval from code owner
+4. Create draft PR first
 
-## Communication Protocol
-- Response format: PLAN → CONFIRM → EXECUTE → VERIFY
-- Maximum response: 4 lines unless detailed requested
-- No decorative elements (emojis, excessive formatting)
-- Use MUST/NEVER/ALWAYS for emphasis only
+## Git Workflow - MANDATORY
+1. Pull latest changes
+2. Create feature branch: feature/[ticket-id]-[description]
+3. Make atomic commits
+4. Write descriptive commit messages
+5. Push to feature branch ONLY
+6. Create PR, never auto-merge
 
-## Tool Usage
-- Parallel execution for independent operations ONLY
-- Subagents for complex verification MANDATORY
-- No tool use without explicit plan
+## Documentation Protocol
+- Update docs SIMULTANEOUSLY with code
+- Include in same commit
+- Follow team's doc standards
+- Update changelog
 
-## Memory Compliance Check
-Every 5 interactions:
-- Re-read CLAUDE.md
-- Confirm compliance
-- Reset if deviation detected
+## Review Process
+- Self-review checklist first
+- Request review from 2+ members
+- Address ALL comments
+- NO merge without approvals
 
-## Ian Nuttall Method
-- Hierarchical CLAUDE.md per directory
-- Early /clear before context warnings
-- Session documentation mandatory
-- Slow progress, deep understanding
+## Conflict Resolution
+IF merge_conflict:
+  1. STOP immediately
+  2. Alert user
+  3. Do NOT attempt auto-resolution
+  4. Wait for instructions
 
-<important_instruction_reminders>
-Do what has been asked; nothing more, nothing less.
-NEVER create files unless absolutely necessary.
-ALWAYS prefer editing existing files.
-NEVER proactively create documentation.
-</important_instruction_reminders>
+## Team Memory Sync
+- Check for updates to team CLAUDE.md daily
+- Import team-specific configurations
+- Respect individual .claude/local preferences

@@ -24,45 +24,44 @@ Principle 6: AI MUST output these 6 principles verbatim to screen at beginning o
 
 VIOLATION = IMMEDIATE TERMINATION
 
-# GLOBAL ENFORCEMENT RULES
+# PRODUCTION SYSTEM CONSTRAINTS
 
-## Thinking Mode
-- ALWAYS use "think harder" minimum for planning
-- NEVER omit thinking phase
-- Document reasoning in thinking blocks
+## Critical Safety Rules
+- **NEVER** modify production without approval chain
+- **NEVER** auto-deploy
+- **NEVER** bypass security checks
+- **ALWAYS** backup before changes
+- **ALWAYS** test in staging first
 
-## File Operations
-- **NEVER** create files unless explicitly requested
-- **ALWAYS** prefer editing over creating
-- **NEVER** create documentation proactively
-- Ask before EVERY file operation
+## Change Management Protocol
+1. Document proposed change
+2. Impact analysis required
+3. Rollback plan mandatory
+4. User approval at each stage
+5. Verification after each step
 
-## Communication Protocol
-- Response format: PLAN → CONFIRM → EXECUTE → VERIFY
-- Maximum response: 4 lines unless detailed requested
-- No decorative elements (emojis, excessive formatting)
-- Use MUST/NEVER/ALWAYS for emphasis only
+## Quality Gates - MANDATORY
+- Test coverage MUST exceed 95%
+- Security scan MUST pass
+- Performance regression MUST be zero
+- Documentation MUST be complete
+- Code review MUST be approved
 
-## Tool Usage
-- Parallel execution for independent operations ONLY
-- Subagents for complex verification MANDATORY
-- No tool use without explicit plan
+## Monitoring Requirements
+- Log every action taken
+- Report status every 3 operations
+- Alert on any deviation
+- Maintain audit trail
 
-## Memory Compliance Check
-Every 5 interactions:
-- Re-read CLAUDE.md
-- Confirm compliance
-- Reset if deviation detected
+## Emergency Procedures
+IF error_detected:
+  1. STOP all operations
+  2. Document current state
+  3. Wait for user instruction
+  4. NO automatic recovery
 
-## Ian Nuttall Method
-- Hierarchical CLAUDE.md per directory
-- Early /clear before context warnings
-- Session documentation mandatory
-- Slow progress, deep understanding
-
-<important_instruction_reminders>
-Do what has been asked; nothing more, nothing less.
-NEVER create files unless absolutely necessary.
-ALWAYS prefer editing existing files.
-NEVER proactively create documentation.
-</important_instruction_reminders>
+## Compliance Verification
+- Re-read this file every 10 operations
+- Confirm each constraint active
+- Report compliance status
+- Halt if any violation detected

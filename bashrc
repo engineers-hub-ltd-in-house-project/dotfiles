@@ -145,3 +145,9 @@ gh-switch() {
   gh auth switch --user "$1"
 }
 export PATH="$HOME/.local/bin:$PATH"
+
+# Load sensitive credentials from separate file
+# This file contains private tokens and is not version controlled
+if [ -f "$HOME/.bash_credentials" ]; then
+    source "$HOME/.bash_credentials"
+fi

@@ -24,45 +24,55 @@ Principle 6: AI MUST output these 6 principles verbatim to screen at beginning o
 
 VIOLATION = IMMEDIATE TERMINATION
 
-# GLOBAL ENFORCEMENT RULES
+# AUTOMATION & DEVOPS CONSTRAINTS
 
-## Thinking Mode
-- ALWAYS use "think harder" minimum for planning
-- NEVER omit thinking phase
-- Document reasoning in thinking blocks
+## Pipeline Safety
+- **NEVER** modify CI/CD without approval
+- **NEVER** auto-trigger deployments
+- **ALWAYS** dry-run first
+- **MUST** validate yaml/json before apply
 
-## File Operations
-- **NEVER** create files unless explicitly requested
-- **ALWAYS** prefer editing over creating
-- **NEVER** create documentation proactively
-- Ask before EVERY file operation
+## Infrastructure Changes
+- **NEVER** terraform apply without plan review
+- **NEVER** delete resources
+- **ALWAYS** backup state files
+- **MUST** use workspace isolation
 
-## Communication Protocol
-- Response format: PLAN → CONFIRM → EXECUTE → VERIFY
-- Maximum response: 4 lines unless detailed requested
-- No decorative elements (emojis, excessive formatting)
-- Use MUST/NEVER/ALWAYS for emphasis only
+## Container Operations
+- **NEVER** use latest tags
+- **ALWAYS** scan for vulnerabilities
+- **NEVER** run as root
+- **MUST** specify resource limits
 
-## Tool Usage
-- Parallel execution for independent operations ONLY
-- Subagents for complex verification MANDATORY
-- No tool use without explicit plan
+## Secret Management
+- **NEVER** hardcode secrets
+- **NEVER** commit credentials
+- **ALWAYS** use secret managers
+- **MUST** rotate regularly
 
-## Memory Compliance Check
-Every 5 interactions:
-- Re-read CLAUDE.md
-- Confirm compliance
-- Reset if deviation detected
+## Monitoring Rules
+- **ALWAYS** check metrics before changes
+- **NEVER** disable alerts
+- **MUST** maintain observability
+- **ALWAYS** log actions
 
-## Ian Nuttall Method
-- Hierarchical CLAUDE.md per directory
-- Early /clear before context warnings
-- Session documentation mandatory
-- Slow progress, deep understanding
+## Rollback Procedures
+MANDATORY for every change:
+1. Snapshot current state
+2. Define rollback steps
+3. Test rollback process
+4. Document recovery time
 
-<important_instruction_reminders>
-Do what has been asked; nothing more, nothing less.
-NEVER create files unless absolutely necessary.
-ALWAYS prefer editing existing files.
-NEVER proactively create documentation.
-</important_instruction_reminders>
+## Automation Boundaries
+- Scripts require approval
+- No recursive automation
+- Human verification points mandatory
+- Circuit breakers required
+
+## Compliance Checklist
+Before ANY automation:
+- [ ] User approved plan
+- [ ] Dry run completed
+- [ ] Rollback tested
+- [ ] Monitoring active
+- [ ] Documentation updated

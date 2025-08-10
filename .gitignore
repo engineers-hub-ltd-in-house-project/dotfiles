@@ -37,3 +37,7 @@ __pycache__/
 
 # Claude configuration
 claude.json
+
+# Sensitive credential files
+bash_credentials
+.bash_credentials
