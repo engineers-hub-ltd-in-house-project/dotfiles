@@ -8,6 +8,9 @@ tools and applications.
 ```bash
 dotfiles/
 ├── README.md           # This file
+├── Makefile           # Automation commands for setup and maintenance
+├── lefthook.yml       # Git hooks configuration for automated formatting
+├── .markdownlint.json # Markdown linter configuration
 ├── setup-dotfiles.sh   # Script to set up dotfiles on a new machine
 ├── restore-dotfiles.sh # Script to restore dotfiles from this repository
 ├── bashrc             # Bash configuration
@@ -28,9 +31,41 @@ dotfiles/
 
 ## Setup
 
-### Initial Setup (on current machine)
+### Quick Setup with Makefile
 
-To set up dotfiles management on your current machine:
+This repository includes automated setup commands via Makefile:
+
+```bash
+# Clone and navigate to the repository
+git clone https://github.com/engineers-hub-ltd-in-house-project/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+# Install required formatting tools
+make install-tools
+
+# Set up git hooks for automatic formatting
+make setup-hooks
+
+# Set up dotfiles management
+make setup
+```
+
+### Available Make Commands
+
+- `make help` - Show all available commands
+- `make setup` - Set up dotfiles on current machine
+- `make restore` - Restore dotfiles from repository
+- `make backup` - Create backup of current dotfiles
+- `make update` - Update dotfiles from home directory
+- `make clean` - Remove backup files
+- `make install-tools` - Install required formatting tools (lefthook, shellcheck, etc.)
+- `make setup-hooks` - Install lefthook git hooks
+
+### Manual Setup
+
+#### Initial Setup (on current machine)
+
+To set up dotfiles management manually:
 
 ```bash
 cd ~/dotfiles
@@ -42,9 +77,10 @@ This will:
 1. Move specified dotfiles from your home directory to this repository
 2. Create symbolic links from your home directory to the files in this repository
 3. Initialize git repository if not already initialized
-### Restore on New Machine
 
-To restore your dotfiles on a new machine:
+#### Restore on New Machine
+
+To restore your dotfiles on a new machine manually:
 
 ```bash
 git clone https://github.com/engineers-hub-ltd-in-house-project/dotfiles.git ~/dotfiles
@@ -110,12 +146,67 @@ Sensitive information is separated from version control:
 ### Ignored Files
 
 The following files are explicitly ignored:
+
 - `claude.json` - Claude configuration with potentially sensitive data
 - `bash_credentials` - Environment variables with tokens/keys
 - `*.backup` - Backup files created during restore
 
+## Automated Code Formatting
+
+This repository uses **lefthook** to automatically format and lint code on commit:
+
+### Supported File Types
+
+- **Shell Scripts** (`.sh`):
+  - `shellcheck` - Static analysis and linting
+  - `shfmt` - Consistent formatting (2-space indentation)
+
+- **Markdown** (`.md`):
+  - `markdownlint` - Style and formatting validation
+
+- **YAML** (`.yml`, `.yaml`):
+  - `yamllint` - YAML syntax validation
+  - `prettier` - Consistent formatting
+
+### Automatic Actions
+
+On every commit, lefthook automatically:
+
+1. **Removes trailing whitespace** from all text files
+2. **Ensures files end with newlines**
+3. **Formats code** according to established standards
+4. **Validates syntax** and catches common errors
+5. **Stages fixed files** automatically
+
+### Installation
+
+The formatting tools are automatically installed and configured when you run:
+
+```bash
+make install-tools
+make setup-hooks
+```
+
+### Manual Commands
+
+You can also run formatting manually:
+
+```bash
+# Install all required tools
+make install-tools
+
+# Set up git hooks
+make setup-hooks
+
+# Check current lefthook status
+lefthook version
+```
+
 ## Notes
+
 - The scripts automatically handle creating necessary directory structures
 - Existing files are backed up with a `.backup` extension when restoring
 - Symbolic links are used to maintain the connection between your home
   directory and the dotfiles repository
+- All commits are automatically formatted and validated before being accepted
+- Pre-push hooks validate all files to ensure repository quality
