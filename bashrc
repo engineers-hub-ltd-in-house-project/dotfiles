@@ -129,11 +129,10 @@ eval "$(pyenv init -)"
 . "$HOME/.cargo/env"
 export PATH=$PATH:$HOME/go/bin
 
-# GitHub CLI のショートカット
-# 特定ユーザーへの切り替え用エイリアス
-alias gh-medii='gh auth switch --user ysato-medii-jp'
-alias gh-theyou='gh auth switch --user ysato-theyou'
-alias gh-ehl='gh auth switch --user yusuke-sato-engineers-hub-ltd'
+# Load custom aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # どのユーザー名でも対応できる汎用関数
 gh-switch() {

@@ -93,6 +93,7 @@ cd ~/dotfiles
 The following configuration files are managed by this repository:
 
 - `.bashrc` - Bash shell configuration
+- `.bash_aliases` - Custom bash aliases and shortcuts
 - `.bash_credentials` - Sensitive environment variables (symlinked, not in git)
 - `.gitconfig` - Git global configuration
 - `.claude/CLAUDE.md` - Personal coding standards for Claude Code
