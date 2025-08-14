@@ -1,0 +1,66 @@
+# Lefthook configuration for dotfiles management
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  parallel: true
+  commands:
+    # Shell script formatting and linting
+    shellcheck:
+      glob: "*.sh"
+      run: shellcheck {staged_files}
+      stage_fixed: true
+
+    shfmt:
+      glob: "*.sh"
+      run: shfmt -w -i 2 -ci {staged_files}
+      stage_fixed: true
+
+    # Markdown formatting
+    markdownlint:
+      glob: "*.md"
+      run: markdownlint --fix {staged_files}
+      stage_fixed: true
+
+    # YAML/YML formatting
+    yamllint:
+      glob: "*.{yml,yaml}"
+      run: yamllint {staged_files}
+
+    prettier-yaml:
+      glob: "*.{yml,yaml}"
+      run: prettier --write {staged_files}
+      stage_fixed: true
+
+    # General text file formatting
+    remove-trailing-whitespace:
+      glob: "*.{sh,md,yml,yaml,txt,gitconfig,bashrc,profile}"
+      run: sed -i 's/[[:space:]]*$//' {staged_files}
+      stage_fixed: true
+
+    # Ensure files end with newline
+    fix-end-of-files:
+      glob: "*.{sh,md,yml,yaml,txt,gitconfig,bashrc,profile}"
+      run: |
+        for file in {staged_files}; do
+          if [ -n "$(tail -c1 "$file")" ]; then
+            echo "" >> "$file"
+          fi
+        done
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  commands:
+    # Final validation before push
+    validate-shell-scripts:
+      glob: "*.sh"
+      run: shellcheck {all_files}
+
+    validate-markdown:
+      glob: "*.md"
+      run: markdownlint {all_files}
+
+# Install hooks automatically
+install_command: |
+  echo "Installing lefthook hooks..."
+  lefthook install
