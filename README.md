@@ -42,7 +42,6 @@ This will:
 1. Move specified dotfiles from your home directory to this repository
 2. Create symbolic links from your home directory to the files in this repository
 3. Initialize git repository if not already initialized
-
 ### Restore on New Machine
 
 To restore your dotfiles on a new machine:
@@ -65,7 +64,6 @@ The following configuration files are managed by this repository:
 - `.profile` - Shell profile configuration
 
 ## Adding New Files
-
 To add new configuration files to be managed:
 
 1. Edit `setup-dotfiles.sh` and add the file to the `FILES` array
@@ -85,6 +83,7 @@ The `claude/` directory contains multiple CLAUDE.md patterns for different use c
 - **CLAUDE_devops.md** - Automation and DevOps constraints
 
 ### Switching Patterns
+
 Use the interactive pattern switcher:
 
 ```bash
@@ -93,7 +92,6 @@ cd ~/dotfiles/claude
 ```
 
 Features:
-
 - Interactive menu for pattern selection
 - Automatic backup before switching
 - Restore from previous backups
@@ -102,7 +100,6 @@ Features:
 ## Security
 
 ### Sensitive Credentials
-
 Sensitive information is separated from version control:
 
 - `bash_credentials` contains private tokens and API keys
@@ -113,13 +110,11 @@ Sensitive information is separated from version control:
 ### Ignored Files
 
 The following files are explicitly ignored:
-
 - `claude.json` - Claude configuration with potentially sensitive data
 - `bash_credentials` - Environment variables with tokens/keys
 - `*.backup` - Backup files created during restore
 
 ## Notes
-
 - The scripts automatically handle creating necessary directory structures
 - Existing files are backed up with a `.backup` extension when restoring
 - Symbolic links are used to maintain the connection between your home
