@@ -1,10 +1,11 @@
 # Dotfiles
 
-This repository contains my personal configuration files (dotfiles) for various tools and applications.
+This repository contains my personal configuration files (dotfiles) for various
+tools and applications.
 
 ## Structure
 
-```
+```bash
 dotfiles/
 ├── README.md           # This file
 ├── setup-dotfiles.sh   # Script to set up dotfiles on a new machine
@@ -37,6 +38,7 @@ cd ~/dotfiles
 ```
 
 This will:
+
 1. Move specified dotfiles from your home directory to this repository
 2. Create symbolic links from your home directory to the files in this repository
 3. Initialize git repository if not already initialized
@@ -54,6 +56,7 @@ cd ~/dotfiles
 ## Managed Files
 
 The following configuration files are managed by this repository:
+
 - `.bashrc` - Bash shell configuration
 - `.bash_credentials` - Sensitive environment variables (symlinked, not in git)
 - `.gitconfig` - Git global configuration
@@ -74,6 +77,7 @@ To add new configuration files to be managed:
 The `claude/` directory contains multiple CLAUDE.md patterns for different use cases:
 
 ### Available Patterns
+
 - **CLAUDE_global.md** - General purpose configuration for everyday use
 - **CLAUDE_production.md** - Strict controls for production environments
 - **CLAUDE_team.md** - Team collaboration with git workflow rules
@@ -82,12 +86,14 @@ The `claude/` directory contains multiple CLAUDE.md patterns for different use c
 
 ### Switching Patterns
 Use the interactive pattern switcher:
+
 ```bash
 cd ~/dotfiles/claude
 ./switch_claude_pattern.sh
 ```
 
 Features:
+
 - Interactive menu for pattern selection
 - Automatic backup before switching
 - Restore from previous backups
@@ -96,14 +102,18 @@ Features:
 ## Security
 
 ### Sensitive Credentials
+
 Sensitive information is separated from version control:
+
 - `bash_credentials` contains private tokens and API keys
 - This file is excluded from git via `.gitignore`
 - `.bashrc` sources `~/.bash_credentials` if it exists
 - The file is symlinked during setup but never committed
 
 ### Ignored Files
+
 The following files are explicitly ignored:
+
 - `claude.json` - Claude configuration with potentially sensitive data
 - `bash_credentials` - Environment variables with tokens/keys
 - `*.backup` - Backup files created during restore
@@ -112,4 +122,5 @@ The following files are explicitly ignored:
 
 - The scripts automatically handle creating necessary directory structures
 - Existing files are backed up with a `.backup` extension when restoring
-- Symbolic links are used to maintain the connection between your home directory and the dotfiles repository
+- Symbolic links are used to maintain the connection between your home
+  directory and the dotfiles repository

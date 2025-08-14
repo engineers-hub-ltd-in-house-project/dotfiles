@@ -13,7 +13,9 @@ Principle 7: AI MUST conduct internal reasoning and thinking in English for opti
 <every_chat>
 [AI OPERATION 7 PRINCIPLES]
 [main_output]
+
 # [n] times. # n = increment each chat, end line, etc(#1, #2...)
+
 </every_chat>
 
 # MANDATORY FIRST ACTION
